@@ -1,0 +1,29 @@
+# -*- coding: utf-8 -*-
+
+import os
+
+# Функция для определения количества строк в файлах расположенных в
+# указанной папке и записью их в словарь
+def count_lines(path: str='./files/task_3') -> dict:
+    files_lines = {}
+    for file in os.listdir(path):
+        with open(f'{path}/{file}', encoding='utf-8') as f:
+            lines = len(f.readlines())
+            files_lines[file] = lines
+    
+    sorted_files = dict(sorted(files_lines.items(), key=lambda x: x[1]))
+
+    return sorted_files
+
+# Создание итогового файла включающем в себя 
+def create_finall_file(files_line_dict: dict, path: str='./files/task_3'):
+    with open(f'result.txt', 'w', encoding='utf-8') as file:
+        for key, value in count.items():
+            with open(f'{path}/{key}', encoding='utf-8') as f:
+                text = f.read().strip()
+            file.write(f'{key}\n{value}\n{text}\n')
+            
+
+if __name__ == '__main__':
+    count = count_lines()
+    create_finall_file(files_line_dict=count)

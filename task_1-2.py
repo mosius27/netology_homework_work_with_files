@@ -35,6 +35,6 @@ class Cooking():
         return shop_list
 
 if __name__ == '__main__':
-    cook_book = Cooking('./files/recipes.txt')
+    cook_book = Cooking('./files/task_1-2/recipes.txt')
     person_count = int(input('Укажите на какое количество человек готовить: '))
     shop_list = cook_book.get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], person_count)
